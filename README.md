@@ -1,2 +1,2 @@
 ## Prejeto Laravel com Docker
-- iniciando aprendeziado em laravel 5.x
+- iniciando o aprendizado em laravel 5.x
