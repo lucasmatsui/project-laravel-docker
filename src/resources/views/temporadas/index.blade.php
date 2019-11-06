@@ -1,14 +1,14 @@
 @extends('layout')
 
 @section('cabecalho')
-  Temporadas
+  {{ $serie->nome }}
 @endsection
   
 @section('content')
 <ul class="list-group">
   @foreach ($temporadas as $temporada)
   <li class="list-group-item">
-    {{ $temporada->numero }}
+    Temporada {{ $temporada->numero }}
   </li>
   @endforeach
 </ul>
