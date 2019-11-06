@@ -28,8 +28,8 @@ class RemovedorDeSerie
     {
         $serie->temporadas->each(function (Temporada $temporada){
             $this->removerEpisodios($temporada);
+            $temporada->delete();
         });
-        $temporada->delete();
     }
 
     private function removerEpisodios(Temporada $temporada): void
