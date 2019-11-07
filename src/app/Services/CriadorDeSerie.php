@@ -15,10 +15,14 @@ class CriadorDeSerie
   	): Serie 
   	{	
 		DB::beginTransaction();
+		try{
 			$serie = Serie::create(['nome' => $nomeSerie]);
 			$this->adicionarTemporadas($serie, $qt_temporadas, $ep_por_temporada);
-		DB::commit();
-		
+			DB::commit();
+		}catch(\Exception $e){
+			DB::rollback();
+		}
+			
     	return $serie;
 	}
 

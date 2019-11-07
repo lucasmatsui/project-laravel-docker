@@ -6,11 +6,7 @@
 
 @section('content')
 
-@if(!empty($msg))
-  <div class="alert alert-success">
-    {{ $msg }} 
-  </div>
-@endif
+@include('mensagem', ['msg' => $msg])
 
 <a href="{{ route('form_criar_senha') }}" class="btn btn-dark mb-2">Adicionar</a>
 
@@ -31,22 +27,23 @@
 
     <span class="d-flex">
 
-      <button class="btn btn-primary btn-sm mr-2" onclick="toogleInput({{ $serie->id }})">
-        <i class="fas fa-edit"></i>
-      </button>
-
       <a href="/series/{{ $serie->id }}/temporadas" class="btn btn-info btn-sm mr-2">
         <i class="fas fa-external-link-alt"></i>
       </a>
 
+      <button class="btn btn-primary btn-sm mr-2" onclick="toogleInput({{ $serie->id }})">
+          <i class="fas fa-edit"></i>
+      </button>
+
       <form method="POST" action="/series/{{ $serie->id }}"
-      onsubmit="return confirm('Tem certeza que deseja remover a série {{ addslashes($serie->nome) }} ?')">
+        onsubmit="return confirm('Tem certeza que deseja remover a série {{ addslashes($serie->nome) }} ?')">
         @csrf
         @method('DELETE')
         <button class="btn btn-danger btn-sm">
           <i class="far fa-trash-alt"></i>
         </button>
       </form>
+
     </span>
 
   </li>
@@ -54,10 +51,10 @@
 </ul>
 
 <script>
-  function toogleInput($serieId)
+  function toogleInput(serieId)
   {
-    const nome = document.querySelector(`#nome-serie-${$serieId}`);
-    const input = document.querySelector(`#input-nome-serie-${$serieId}`);
+    const nome = document.querySelector(`#nome-serie-${serieId}`);
+    const input = document.querySelector(`#input-nome-serie-${serieId}`);
 
     if(input.hasAttribute('hidden')) {
       nome.hidden = true;
@@ -68,6 +65,28 @@
     nome.removeAttribute('hidden');
     input.hidden = true;
   }
+
+  function editarSerie(serieId) {
+    let formData = new FormData();
+    const nome = document.
+      querySelector(`#input-nome-serie-${serieId} > input`)
+      .value;
+    const token = document.querySelector(`input[name="_token"]`).value;
+
+    formData.append('nome', nome);
+    formData.append('_token', token);
+  
+    const url = `/series/${serieId}/editarNome`;
+
+    fetch(url, {
+      body: formData,
+      method: 'POST'
+    }).then(() => {
+      toogleInput(serieId);
+      document.querySelector(`#nome-serie-${serieId}`).textContent = nome;
+    });
+  }
+
 </script>
 @endsection
 

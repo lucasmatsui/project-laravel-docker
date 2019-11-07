@@ -69,4 +69,22 @@ class SeriesController extends Controller
   }
 
 
+  public function editarNome(int $id, Request $request)
+  {
+    $novoNome = $request->nome;
+    $serie = Serie::find($id);
+    $serie->nome = $novoNome;
+    $serie->save();
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
