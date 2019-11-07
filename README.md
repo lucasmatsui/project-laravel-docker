@@ -2,6 +2,7 @@
 - iniciando o aprendizado em laravel 5.x.
 - Crud de Series.
 - Adicionando as series e as suas respectivas temporadas e episodios.
+- Marcação de series assistidas.
 
 ## Para utilizar
 - Tenha o <b>docker</b> e o <b>docker-compose instalado</b> e execute:
@@ -18,5 +19,5 @@ $ php artisan migrate
 ```
 
 ## Preview
-![screencapture-localhost-8888-series-2019-11-06-12_12_40](https://user-images.githubusercontent.com/31348487/68310560-fe4c7100-008e-11ea-91b6-40c2f1c26b6e.png)
-![screencapture-localhost-8888-series-11-temporadas-2019-11-06-12_13_03](https://user-images.githubusercontent.com/31348487/68310567-00163480-008f-11ea-904c-d45b610db53b.png)
+![screencapture-localhost-8888-series-2019-11-07-14_52_39](https://user-images.githubusercontent.com/31348487/68414133-59a16080-016e-11ea-8a11-74577a8b2148.png)
+![screencapture-localhost-8888-series-1-temporadas-2019-11-07-14_51_17](https://user-images.githubusercontent.com/31348487/68414019-29f25880-016e-11ea-8f1b-6f1cefbc5535.png)
