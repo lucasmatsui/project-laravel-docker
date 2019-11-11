@@ -9,7 +9,8 @@ use App\Services\RemovedorDeSerie;
 use App\Http\Requests\SeriesFormRequest;
 
 class SeriesController extends Controller
-{
+{ 
+ 
   public function index(Request $request)
   {
     $data = array();
@@ -20,10 +21,7 @@ class SeriesController extends Controller
 
     $msg = $request->session()->get('msg');
 
-    $data['series'] = $series;
-    $data['msg'] = $msg;
-
-    return view('series.index', $data);
+    return view('series.index', compact('series', 'msg'));
   }
   
   public function create()
@@ -52,6 +50,7 @@ class SeriesController extends Controller
     return redirect()->route('listar_series');
   }
 
+
   public function destroy(
     Request $request,
     RemovedorDeSerie $removedorDeSerie
@@ -77,6 +76,7 @@ class SeriesController extends Controller
     $serie->save();
   }
 
+  
 }
 
 

@@ -19,6 +19,11 @@ class EpisodiosController extends Controller
 
     public function assistir(Temporada $temporada, Request $request)
     {
+        $request->validate([
+            'episodios' => 'required',
+        ]);
+    
+
         $episodiosAssistidos = $request->episodios;
         $temporada->episodios->each(function(Episodio $episodio) use($episodiosAssistidos) {
             $episodio->assistido = \in_array($episodio->id, $episodiosAssistidos);

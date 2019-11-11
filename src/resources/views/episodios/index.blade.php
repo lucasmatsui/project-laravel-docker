@@ -13,14 +13,15 @@
   <ul class="list-group">
     @csrf
     @foreach ($episodios as $episodio)
-    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
         Episodio {{ $episodio->numero }}
-    <input type="checkbox" 
-      name="episodios[]" 
-      value="{{ $episodio->id }}"
-      {{ $episodio->assistido ? 'checked' : '' }} 
-    />
-    </li>
+        <input type="checkbox" 
+          name="episodios[]"
+          class="episodios" 
+          value="{{ $episodio->id }}"
+          {{ $episodio->assistido ? 'checked' : '' }} 
+        />
+      </li>
     @endforeach
   </ul>
 </form>

@@ -9,6 +9,19 @@
   <title>Controle de séries</title>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 d-flex justify-content-between">
+    <a class="navbar navbar-expand-lg" href="{{ route('listar_series') }}">Home</a>
+    @auth
+
+      <span>
+        {{ Auth::user()->name }}
+        <a href="/sair" class="ml-2 text-danger">Sair</a>
+      </span>        
+    @endauth
+    @guest
+      <a href="/entrar">Entrar</a>                
+    @endguest
+  </nav>
   <div class="container">
     <div class="jumbotron">
       <h1>@yield('cabecalho')</h1>

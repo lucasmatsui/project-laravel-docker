@@ -8,7 +8,9 @@
 
 @include('mensagem', ['msg' => $msg])
 
-<a href="{{ route('form_criar_senha') }}" class="btn btn-dark mb-2">Adicionar</a>
+@auth
+  <a href="{{ route('form_criar_serie') }}" class="btn btn-dark mb-2">Adicionar</a>     
+@endauth
 
 <ul class="list-group">
   @foreach ($series as $serie)
@@ -31,19 +33,23 @@
         <i class="fas fa-external-link-alt"></i>
       </a>
 
-      <button class="btn btn-primary btn-sm mr-2" onclick="toogleInput({{ $serie->id }})">
-          <i class="fas fa-edit"></i>
-      </button>
-
-      <form method="POST" action="/series/{{ $serie->id }}"
-        onsubmit="return confirm('Tem certeza que deseja remover a série {{ addslashes($serie->nome) }} ?')">
-        @csrf
-        @method('DELETE')
-        <button class="btn btn-danger btn-sm">
-          <i class="far fa-trash-alt"></i>
+      @auth
+        <button class="btn btn-primary btn-sm mr-2" onclick="toogleInput({{ $serie->id }})">
+            <i class="fas fa-edit"></i>
         </button>
-      </form>
-
+      @endauth
+      
+      @auth
+        <form method="POST" action="/series/{{ $serie->id }}"
+          onsubmit="return confirm('Tem certeza que deseja remover a série {{ addslashes($serie->nome) }} ?')">
+          @csrf
+          @method('DELETE')
+          <button class="btn btn-danger btn-sm">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </form>
+      @endauth
+      
     </span>
 
   </li>

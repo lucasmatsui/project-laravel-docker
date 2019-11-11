@@ -1,11 +1,23 @@
 ## Prejeto Laravel com Docker - Gerenciador de Series
 - iniciando o aprendizado em laravel 5.x.
 - Crud de Series.
+- Editar o nome da serie in place.
 - Adicionando as series e as suas respectivas temporadas e episodios.
 - Marcação de series assistidas.
+- Autenticação de Usuario.
+- Teste automatizados.
 
 ## Para utilizar
-- Tenha o <b>docker</b> e o <b>docker-compose instalado</b> e execute:
+- Instale o <b>Composer</b>
+- Acesse a pasta <b>src</b> e rode:
+```
+$ composer install
+```
+- Ainda dentro da pasta <b>src</b> rode no terminal: 
+```
+$ php artisan key:generate
+```
+- Tenha o <b>docker</bb> e o <b>docker-compose instalado</b> e execute:
 ```
 $ docker-compose up -d
 ```
@@ -18,6 +30,11 @@ $ docker exec -it <id do container> bash
 $ php artisan migrate
 ```
 
+### Para rodar os teste
+- Acesse o bash do container <b>laravel5x_php-fpm</b> e execute: <b>$ vendor/bin/phpunit</b>
+
 ## Preview
-![screencapture-localhost-8888-series-2019-11-07-14_52_39](https://user-images.githubusercontent.com/31348487/68414133-59a16080-016e-11ea-8a11-74577a8b2148.png)
-![screencapture-localhost-8888-series-1-temporadas-2019-11-07-14_51_17](https://user-images.githubusercontent.com/31348487/68414019-29f25880-016e-11ea-8f1b-6f1cefbc5535.png)
+![screencapture-localhost-8888-series-2019-11-11-16_13_07](https://user-images.githubusercontent.com/31348487/68610205-fb3df000-0495-11ea-82f2-85d656b6d33f.png)
+![screencapture-localhost-8888-series-4-temporadas-2019-11-11-16_13_47](https://user-images.githubusercontent.com/31348487/68610209-fe38e080-0495-11ea-9bfa-1e38d8517799.png)
+![screencapture-localhost-8888-series-8-episodios-2019-11-11-16_14_02](https://user-images.githubusercontent.com/31348487/68610212-ff6a0d80-0495-11ea-96e8-726077c37444.png)
+
