@@ -17,7 +17,7 @@ $ composer install
 ```
 $ php artisan key:generate
 ```
-- Tenha o <b>docker</bb> e o <b>docker-compose instalado</b> e execute:
+- Tenha o <b>docker</b> e o <b>docker-compose instalado</b> e execute:
 ```
 $ docker-compose up -d
 ```
